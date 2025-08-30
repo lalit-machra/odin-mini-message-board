@@ -18,7 +18,6 @@ let messages = [
 ]
 
 indexRouter.get("/", (req, res) => {
-  console.log(messages);
   res.render("index", { messages: messages });
 });
 

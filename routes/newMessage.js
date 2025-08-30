@@ -4,7 +4,6 @@ import { messages } from "../routes/index.js";
 const newRouter = Router();
 
 newRouter.get("/", (req, res) => {
-  console.log("hello")
   res.render("form");
 });
 
