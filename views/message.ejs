@@ -9,10 +9,10 @@
   <a href="/">Home</a>
   <% let details = messages.filter((message) => message.id == id)[0] %>
   <h4>Author:</h4>  
-  <h3><%= details.user %></h3>
+  <h3><%= details.author %></h3>
   <h4>Date:</h4>
   <h3><%= details.added %></h3>
   <h4>Message:</h4>
-  <h3><%= details.text %></h3>
+  <h3><%= details.message %></h3>
 </body>
 </html>

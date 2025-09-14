@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { messages } from "../routes/index.js";
+import { addToDatabase } from "../db/queries.js";
 
 const newRouter = Router();
 
@@ -7,12 +7,11 @@ newRouter.get("/", (req, res) => {
   res.render("form");
 });
 
-newRouter.post("/", (req, res) => {
-  const user = req.body.user;
-  const text = req.body.text;
+newRouter.post("/", async (req, res) => {
+  const author = req.body.author;
   const added = new Date();
-  const id = messages.length + 1;
-  messages.push({ user, text, added, id });
+  const message = req.body.message;
+  await addToDatabase({ author, added, message });
   res.redirect("/");
 });
 

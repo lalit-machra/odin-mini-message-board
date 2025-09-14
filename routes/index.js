@@ -1,24 +1,11 @@
 import { Router } from "express";
+import * as db from "../db/queries.js";
 
 const indexRouter = Router();
 
-let messages = [
-  {
-    text: "hello",
-    user: "amando",
-    added: new Date(),
-    id: 1,
-  },
-  {
-    text: "good morning",
-    user: "charles",
-    added: new Date(),
-    id: 2,
-  }
-]
-
-indexRouter.get("/", (req, res) => {
-  res.render("index", { messages: messages });
+indexRouter.get("/", async (req, res) => {
+  let allData = await db.getAllData();
+  res.render("index", { messages: allData });
 });
 
-export { indexRouter, messages };
+export { indexRouter };
