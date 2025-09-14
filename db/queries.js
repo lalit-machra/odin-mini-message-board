@@ -30,4 +30,14 @@ async function getAllData() {
   }
 }
 
-export { addToDatabase, getAllData }
+async function deleteFromDb(id) {
+  try {
+    await myPool.query(`
+      DELETE FROM messages WHERE id = $1;
+    `, [id]);
+  } catch (err) {
+    throw err;
+  }
+}
+
+export { addToDatabase, getAllData, deleteFromDb }
