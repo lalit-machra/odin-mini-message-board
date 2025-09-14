@@ -20,7 +20,6 @@ async function getAllData() {
     let { rows } = await myPool.query(`
       SELECT * FROM messages;
     `);
-    console.log(rows);
     return rows;
   } catch(err) {
     console.log("Some error occured in all fetching data: ", err);
